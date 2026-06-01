@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<header class="navbar">
+    <div class="logo">TechUnder100</div>
+    <div class="menu-icon" onclick="toggleMenu()">☰</div>
+    <nav id="nav-links">
+        <a href="index.html">Home</a>
+        <a href="products.html">Products</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+</header>
+
+<section class="page-hero">
+    <h1>All Tech Gadgets Under $100</h1>
+    <p>
+        Browse practical and affordable tech gadgets carefully selected
+        for daily use, work, and entertainment.
+    </p>
+</section>
+
+<section class="products-intro">
+    <p>
+        Every product listed below is selected based on usefulness,
+        value for money, and real world demand. We avoid unnecessary
+        gadgets and focus on what actually helps.
+    </p>
+</section>
+
+<section class="product-tools">
+    <input
+        type="text"
+        id="searchInput"
+        placeholder="Search gadgets by name"
+    >
+
+    <select id="categoryFilter">
+        <option value="all">All Categories</option>
+        <option value="audio">Audio</option>
+        <option value="accessories">Accessories</option>
+        <option value="office">Office Tech</option>
+    </select>
+<section class="products-wrapper">
+
+    <div class="products-header">
+        <h2>Top Tech Gadgets Under $100</h2>
+        <p>
+            Carefully selected gadgets that are useful, affordable,
+            and suitable for daily life.
+        </p>
+    </div>
+
+    <div class="products-tools">
+        <input
+            type="text"
+            id="searchInput"
+            placeholder="Search gadgets by name"
+        >
+
+        <select id="categoryFilter">
+            <option value="all">All Categories</option>
+            <option value="audio">Audio</option>
+            <option value="accessories">Accessories</option>
+            <option value="office">Office Tech</option>
+        </select>
+    </div>
+
+    <div class="products-container">
+        <div class="product-grid" id="productGrid">
+            <!-- Products load here -->
+        </div>
+    </div>
+
+</section>
+
+
+
+<footer class="footer">
+    <p>As an Amazon Associate, we earn from qualifying purchases.</p>
+    <p>© 2026 TechUnder100</p>
+</footer>
+
+<script src="js/script.js"></script>
+
+</html>
