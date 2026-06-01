@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Contact Us | Ultimate Water Damage Restoration</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header class="header">
+    <div class="logo">
+        <span class="logo-main">ULTIMATE</span>
+        <span class="logo-sub">WATER DAMAGE RESTORATION</span>
+    </div>
+
+    <!-- MOBILE MENU ICON -->
+    <div class="menu-icon" id="menuIcon">☰</div>
+
+    <nav class="nav" id="navMenu">
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="services.html">Services</a>
+        <a href="projects.html">Projects</a>
+        <a href="contact.html" class="active">Contact</a>
+    </nav>
+
+    <a href="tel:+18337170024" class="btn-appointment desktop-only">
+        Call Us Now
+    </a>
+</header>
+
+<!-- CONTACT HERO -->
+<section class="contact-hero">
+    <div class="contact-hero-content">
+        <h1>Contact Us</h1>
+        <p>Fast Response. Professional Service. 24/7 Availability.</p>
+
+        <div class="contact-hero-buttons">
+            <a href="tel:+18337170024" class="btn-orange">Call Us Now</a>
+            <a href="tel:+18337170024" class="btn-outline">Get a Free Estimate</a>
+        </div>
+    </div>
+</section>
+
+<!-- CONTACT INFO -->
+<section class="section">
+    <div class="container grid-3">
+
+        <div class="contact-card">
+            <h3>24/7 Emergency Service</h3>
+            <p>
+                Water damage can happen at any time.
+                Our emergency team is available day and night
+                to respond quickly and minimize damage.
+            </p>
+        </div>
+
+        <div class="contact-card highlight">
+            <h3>Call Us Directly</h3>
+            <p>
+                Speak with a restoration specialist right away.
+                We are ready to assist with immediate solutions
+                and professional guidance.
+            </p>
+            <a href="tel:+18337170024" class="btn-orange full">
+                +1 (833) 717-0024
+            </a>
+        </div>
+
+        <div class="contact-card">
+            <h3>Free Estimate</h3>
+            <p>
+                Get a free estimate for water damage restoration.
+                We provide honest pricing and clear explanations
+                before starting any work.
+            </p>
+            <a href="tel:+18337170024" class="btn-outline full">
+                Get a Free Estimate
+            </a>
+        </div>
+
+    </div>
+</section>
+
+<!-- WHY CONTACT US -->
+<section class="section gray">
+    <div class="container center">
+
+        <span class="tag">WHY CONTACT US</span>
+        <h2>We Make Restoration Simple & Stress Free</h2>
+
+        <p class="wide">
+            Our team understands how overwhelming water damage can be.
+            From the first call to the final inspection, we focus on
+            clear communication, fast action, and quality workmanship.
+            When you contact us, you are choosing experience, reliability,
+            and complete peace of mind.
+        </p>
+
+    </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="cta">
+    <h2>Need Immediate Assistance?</h2>
+    <p>Call now and speak with a professional restoration expert.</p>
+
+    <div class="cta-buttons">
+        <a href="tel:+18337170024" class="btn-white">Call Us Now</a>
+        <a href="tel:+18337170024" class="btn-outline-light">Get a Free Estimate</a>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <div class="footer-container">
+
+        <div class="footer-col footer-brand">
+            <h3>Ultimate Water Damage Restoration</h3>
+            <p>
+                Fast, reliable, and professional water damage
+                restoration services for homes and businesses.
+            </p>
+        </div>
+
+        <div class="footer-col">
+            <h4>Quick Links</h4>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-col">
+            <h4>Contact</h4>
+            <p>24/7 Emergency Service</p>
+            <p>Phone: +1 (833) 717-0024</p>
+            <p>Email: info@ultimatewaterdamage.com</p>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        © 2026 Ultimate Water Damage Restoration. All rights reserved.
+    </div>
+</footer>
+
+<!-- MOBILE MENU SCRIPT -->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const menuIcon = document.getElementById("menuIcon");
+    const navMenu = document.getElementById("navMenu");
+
+    if (!menuIcon || !navMenu) return;
+
+    const navLinks = navMenu.querySelectorAll("a");
+
+    menuIcon.addEventListener("click", function () {
+        navMenu.classList.toggle("active");
+        menuIcon.textContent = navMenu.classList.contains("active") ? "✕" : "☰";
+    });
+
+    navLinks.forEach(link => {
+        link.addEventListener("click", function () {
+            navMenu.classList.remove("active");
+            menuIcon.textContent = "☰";
+        });
+    });
+});
+</script>
+
+</body>
+</html>
+
