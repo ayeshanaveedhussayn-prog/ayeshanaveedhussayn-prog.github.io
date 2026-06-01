@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ayesha Naveed — Frontend Developer & SEO Expert</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --cream: #FAF8F3;
+    --dark: #1A1A18;
+    --gold: #C9963A;
+    --gold-light: #F5E6C8;
+    --muted: #6B6860;
+    --card-bg: #FFFFFF;
+    --border: rgba(0,0,0,0.08);
+    --tag-bg: #F0EDE5;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--dark);
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  /* NAV */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(250,248,243,0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 14px 40px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .nav-logo { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 700; }
+  .nav-links { display: flex; gap: 28px; }
+  .nav-links a { text-decoration: none; color: var(--muted); font-size: 13px; font-weight: 500; letter-spacing: 0.3px; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--dark); }
+
+  /* HERO */
+  .hero {
+    padding: 80px 40px 70px;
+    display: grid; grid-template-columns: 1fr 380px; gap: 60px; align-items: center;
+    max-width: 1100px; margin: 0 auto;
+  }
+  .hero-tag {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: var(--gold-light); color: #8A6020;
+    font-size: 12px; font-weight: 500; letter-spacing: 0.5px;
+    padding: 5px 12px; border-radius: 20px; margin-bottom: 20px;
+  }
+  .hero-tag::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--gold); display: inline-block; }
+  h1 { font-family: 'Playfair Display', serif; font-size: 52px; font-weight: 700; line-height: 1.1; letter-spacing: -1px; margin-bottom: 18px; }
+  h1 span { color: var(--gold); }
+  .hero-desc { color: var(--muted); font-size: 16px; line-height: 1.7; max-width: 480px; margin-bottom: 32px; }
+  .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--dark); color: #fff;
+    padding: 12px 24px; border-radius: 8px; text-decoration: none;
+    font-size: 14px; font-weight: 500; transition: opacity 0.2s; display: inline-block;
+  }
+  .btn-primary:hover { opacity: 0.85; }
+  .btn-outline {
+    background: transparent; color: var(--dark);
+    border: 1px solid rgba(0,0,0,0.2);
+    padding: 12px 24px; border-radius: 8px; text-decoration: none;
+    font-size: 14px; font-weight: 500; transition: background 0.2s; display: inline-block;
+  }
+  .btn-outline:hover { background: rgba(0,0,0,0.04); }
+
+  /* HERO CARD */
+  .hero-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 28px;
+    box-shadow: 0 4px 40px rgba(0,0,0,0.06);
+  }
+  .avatar {
+    width: 64px; height: 64px; border-radius: 50%;
+    background: linear-gradient(135deg, #C9963A, #E8B85A);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Playfair Display', serif; font-size: 22px; color: #fff; font-weight: 700;
+    margin-bottom: 16px;
+  }
+  .hero-card h3 { font-size: 17px; font-weight: 600; margin-bottom: 4px; }
+  .hero-card .sub { font-size: 13px; color: var(--muted); margin-bottom: 18px; }
+  .stat-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 18px; }
+  .stat { background: var(--tag-bg); border-radius: 10px; padding: 12px; text-align: center; }
+  .stat-num { font-size: 22px; font-weight: 700; font-family: 'Playfair Display', serif; color: var(--gold); }
+  .stat-label { font-size: 11px; color: var(--muted); margin-top: 2px; }
+  .location-row { display: flex; align-items: center; gap: 6px; font-size: 13px; color: var(--muted); }
+  .dot { width: 8px; height: 8px; border-radius: 50%; background: #22C55E; display: inline-block; flex-shrink: 0; }
+
+  /* SECTIONS */
+  section { max-width: 1100px; margin: 0 auto; padding: 60px 40px; }
+  .section-label { font-size: 11px; font-weight: 600; letter-spacing: 1.5px; color: var(--gold); text-transform: uppercase; margin-bottom: 8px; }
+  .section-title { font-family: 'Playfair Display', serif; font-size: 34px; font-weight: 700; margin-bottom: 40px; }
+  .divider { border: none; border-top: 1px solid var(--border); max-width: 1100px; margin: 0 auto; }
+
+  /* SKILLS */
+  .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+  .skill-card {
+    background: var(--card-bg); border: 1px solid var(--border);
+    border-radius: 14px; padding: 20px;
+  }
+  .skill-icon { font-size: 24px; margin-bottom: 10px; }
+  .skill-card h4 { font-size: 14px; font-weight: 600; margin-bottom: 10px; }
+  .skill-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+  .tag {
+    background: var(--tag-bg); color: var(--muted);
+    font-size: 11px; font-weight: 500; padding: 4px 10px; border-radius: 20px;
+  }
+  .tag.gold { background: var(--gold-light); color: #7A5010; }
+
+  /* EXPERIENCE */
+  .exp-list { display: flex; flex-direction: column; gap: 20px; }
+  .exp-card {
+    background: var(--card-bg); border: 1px solid var(--border);
+    border-radius: 16px; padding: 24px 28px;
+    display: grid; grid-template-columns: 1fr auto; gap: 12px;
+  }
+  .exp-company { font-size: 12px; font-weight: 600; color: var(--gold); letter-spacing: 0.3px; margin-bottom: 4px; }
+  .exp-title { font-size: 17px; font-weight: 600; margin-bottom: 8px; }
+  .exp-desc { font-size: 14px; color: var(--muted); line-height: 1.6; }
+  .exp-date { font-size: 12px; color: var(--muted); white-space: nowrap; padding-top: 4px; }
+  .exp-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
+
+  /* PROJECTS */
+  .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+  .project-card {
+    background: var(--card-bg); border: 1px solid var(--border);
+    border-radius: 16px; padding: 24px; position: relative; overflow: hidden;
+  }
+  .project-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, var(--gold), #E8B85A);
+  }
+  .project-num { font-size: 11px; color: var(--muted); font-weight: 500; margin-bottom: 10px; }
+  .project-card h4 { font-size: 16px; font-weight: 600; margin-bottom: 8px; }
+  .project-card p { font-size: 13px; color: var(--muted); line-height: 1.6; margin-bottom: 14px; }
+
+  /* TOOLS DARK SECTION */
+  .tools-section { background: var(--dark); color: #fff; padding: 50px 40px; }
+  .tools-inner { max-width: 1100px; margin: 0 auto; }
+  .tools-section .section-label { color: var(--gold); }
+  .tools-section .section-title { color: #fff; margin-bottom: 30px; }
+  .tools-grid { display: flex; flex-wrap: wrap; gap: 10px; }
+  .tool-pill {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.12);
+    color: rgba(255,255,255,0.85);
+    padding: 8px 16px; border-radius: 30px; font-size: 13px;
+  }
+
+  /* CONTACT */
+  .contact-card {
+    background: var(--card-bg); border: 1px solid var(--border);
+    border-radius: 20px; padding: 48px;
+    text-align: center; max-width: 600px; margin: 0 auto;
+  }
+  .contact-card h2 { font-family: 'Playfair Display', serif; font-size: 30px; margin-bottom: 12px; }
+  .contact-card p { color: var(--muted); margin-bottom: 28px; }
+  .contact-links { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
+  .contact-link {
+    display: flex; align-items: center; gap: 8px;
+    background: var(--tag-bg); color: var(--dark);
+    padding: 10px 18px; border-radius: 10px; text-decoration: none;
+    font-size: 13px; font-weight: 500; transition: background 0.2s;
+  }
+  .contact-link:hover { background: var(--gold-light); }
+
+  footer { text-align: center; padding: 24px; font-size: 12px; color: var(--muted); border-top: 1px solid var(--border); }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    .hero { grid-template-columns: 1fr; padding: 40px 20px; }
+    .hero-card { display: none; }
+    h1 { font-size: 36px; }
+    nav { padding: 14px 20px; }
+    .nav-links { gap: 16px; }
+    section { padding: 40px 20px; }
+    .exp-card { grid-template-columns: 1fr; }
+    .contact-card { padding: 28px 20px; }
+    .tools-section { padding: 40px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Ayesha Naveed</div>
+  <div class="nav-links">
+    <a href="#skills">Skills</a>
+    <a href="#experience">Experience</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div>
+    <div class="hero-tag">Open to work · Dubai, UAE</div>
+    <h1>Frontend Dev &amp;<br><span>SEO Expert</span></h1>
+    <p class="hero-desc">BS Information Technology graduate building responsive web experiences and driving organic growth for international clients. I blend clean code with data-driven SEO strategy.</p>
+    <div class="hero-btns">
+      <a href="#contact" class="btn-primary">Get in touch</a>
+      <a href="#projects" class="btn-outline">View projects</a>
+    </div>
+  </div>
+  <div class="hero-card">
+    <div class="avatar">AN</div>
+    <h3>Ayesha Naveed</h3>
+    <p class="sub">Frontend Developer · SEO Expert · App Developer</p>
+    <div class="stat-row">
+      <div class="stat"><div class="stat-num">2+</div><div class="stat-label">Years experience</div></div>
+      <div class="stat"><div class="stat-num">10+</div><div class="stat-label">Projects delivered</div></div>
+      <div class="stat"><div class="stat-num">3+</div><div class="stat-label">SEO clients</div></div>
+      <div class="stat"><div class="stat-num">BZU</div><div class="stat-label">BS in IT · 2025</div></div>
+    </div>
+    <div class="location-row"><span class="dot"></span> Available for work · Dubai, UAE</div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-label">What I do</div>
+  <div class="section-title">Skills &amp; expertise</div>
+  <div class="skills-grid">
+    <div class="skill-card">
+      <div class="skill-icon">🖥️</div>
+      <h4>Frontend Development</h4>
+      <div class="skill-tags">
+        <span class="tag gold">HTML5</span><span class="tag gold">CSS3</span><span class="tag gold">JavaScript</span><span class="tag">Bootstrap</span><span class="tag">PHP</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">🔍</div>
+      <h4>SEO &amp; Digital Marketing</h4>
+      <div class="skill-tags">
+        <span class="tag gold">On-Page SEO</span><span class="tag gold">Technical SEO</span><span class="tag">Local SEO</span><span class="tag">SEM</span><span class="tag">SMO</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">⚙️</div>
+      <h4>CMS &amp; Platforms</h4>
+      <div class="skill-tags">
+        <span class="tag gold">WordPress</span><span class="tag">Theme Dev</span><span class="tag">Plugin Dev</span><span class="tag">WooCommerce</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">🔗</div>
+      <h4>APIs &amp; Integrations</h4>
+      <div class="skill-tags">
+        <span class="tag gold">REST APIs</span><span class="tag">Google Maps API</span><span class="tag">Social APIs</span><span class="tag">n8n</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">📊</div>
+      <h4>Analytics &amp; Tools</h4>
+      <div class="skill-tags">
+        <span class="tag gold">Google Analytics 4</span><span class="tag">Search Console</span><span class="tag">Ahrefs</span><span class="tag">SEMrush</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">🤖</div>
+      <h4>AI &amp; Automation</h4>
+      <div class="skill-tags">
+        <span class="tag gold">AI Chatbots</span><span class="tag">Lovable</span><span class="tag">n8n Workflows</span><span class="tag">Prompt Engineering</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-label">Work history</div>
+  <div class="section-title">Experience</div>
+  <div class="exp-list">
+    <div class="exp-card">
+      <div>
+        <div class="exp-company">The Next Rex (Pvt) Ltd · Australia</div>
+        <div class="exp-title">Frontend Web Developer</div>
+        <div class="exp-desc">Built responsive, cross-browser-compatible websites with HTML5, CSS3 &amp; JavaScript. Developed full e-commerce platforms with cart, checkout &amp; payment gateway integration. Managed REST API integrations and customised WordPress themes for international clients.</div>
+        <div class="exp-tags">
+          <span class="tag">HTML5/CSS3</span><span class="tag">JavaScript</span><span class="tag">WordPress</span><span class="tag">REST APIs</span><span class="tag">E-commerce</span>
+        </div>
+      </div>
+      <div class="exp-date">Feb 2025 – Present</div>
+    </div>
+    <div class="exp-card">
+      <div>
+        <div class="exp-company">S1 Marketing</div>
+        <div class="exp-title">SEO Expert &amp; Web Designer</div>
+        <div class="exp-desc">Led comprehensive keyword research, competitor analysis &amp; topic clustering for multiple client websites. Executed on-page SEO audits, Local SEO strategies &amp; Google Business Profile optimisations. Monitored performance via GSC, GA4, Ahrefs, SEMrush &amp; Screaming Frog with regular reporting.</div>
+        <div class="exp-tags">
+          <span class="tag">SEO Strategy</span><span class="tag">WordPress</span><span class="tag">GA4</span><span class="tag">Ahrefs</span><span class="tag">Local SEO</span><span class="tag">Content Writing</span>
+        </div>
+      </div>
+      <div class="exp-date">May 2024 – Present</div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-label">What I've built</div>
+  <div class="section-title">Key projects</div>
+  <div class="projects-grid">
+    <div class="project-card">
+      <div class="project-num">01 · Capstone Project</div>
+      <h4>AI-Powered Multilingual Translator App</h4>
+      <p>End-to-end AI-driven translation application designed and developed as final year capstone. Combines NLP-based translation with a clean, responsive UI.</p>
+      <div class="skill-tags"><span class="tag gold">AI/NLP</span><span class="tag">Mobile Dev</span><span class="tag">UI/UX</span></div>
+    </div>
+    <div class="project-card">
+      <div class="project-num">02 · Client Work</div>
+      <h4>E-commerce Websites with API Integration</h4>
+      <p>Built and deployed multiple responsive e-commerce and static websites with third-party API integrations including Google Maps API and Social Media APIs.</p>
+      <div class="skill-tags"><span class="tag gold">HTML5/CSS3/JS</span><span class="tag">PHP</span><span class="tag">WordPress</span><span class="tag">APIs</span></div>
+    </div>
+    <div class="project-card">
+      <div class="project-num">03 · SEO Campaigns</div>
+      <h4>Multi-Client SEO Growth Campaigns</h4>
+      <p>Executed full SEO campaigns for multiple clients, delivering measurable improvements in organic search rankings, keyword positions &amp; website traffic.</p>
+      <div class="skill-tags"><span class="tag gold">SEO</span><span class="tag">Content Strategy</span><span class="tag">Analytics</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- TOOLS DARK SECTION -->
+<div class="tools-section">
+  <div class="tools-inner">
+    <div class="section-label">Tech stack</div>
+    <div class="section-title">Tools I work with</div>
+    <div class="tools-grid">
+      <span class="tool-pill">HTML5 / CSS3</span>
+      <span class="tool-pill">JavaScript</span>
+      <span class="tool-pill">PHP</span>
+      <span class="tool-pill">Bootstrap</span>
+      <span class="tool-pill">WordPress</span>
+      <span class="tool-pill">REST APIs</span>
+      <span class="tool-pill">Google Analytics 4</span>
+      <span class="tool-pill">Google Search Console</span>
+      <span class="tool-pill">Ahrefs</span>
+      <span class="tool-pill">SEMrush</span>
+      <span class="tool-pill">Screaming Frog</span>
+      <span class="tool-pill">Looker Studio</span>
+      <span class="tool-pill">n8n Automation</span>
+      <span class="tool-pill">Lovable</span>
+      <span class="tool-pill">SQL</span>
+      <span class="tool-pill">C++</span>
+      <span class="tool-pill">Android Dev</span>
+      <span class="tool-pill">Google Maps API</span>
+    </div>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-card">
+    <h2>Let's work together</h2>
+    <p>Open to frontend developer, SEO specialist, and hybrid digital roles in Dubai. Feel free to reach out!</p>
+    <div class="contact-links">
+      <a href="mailto:ayeshanaveedhussayn@gmail.com" class="contact-link">✉️ Email me</a>
+      <a href="tel:+971525619142" class="contact-link">📞 +971 52 561 9142</a>
+      <a href="https://linkedin.com/in/YOUR-USERNAME" class="contact-link" target="_blank">💼 LinkedIn</a>
+    </div>
+  </div>
+</section>
+
+<footer>© 2026 Ayesha Naveed · Frontend Developer &amp; SEO Expert · Dubai, UAE</footer>
+
+</body>
+</html>
